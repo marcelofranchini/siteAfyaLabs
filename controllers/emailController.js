@@ -6,9 +6,9 @@ module.exports = emailController = {
     send: (req, res) => {
         const { name, email, phone, message } = req.body
         let transporter = nodemailer.createTransport({
-            service: 'gmail',
-            port: 587,
-            secure: false,
+            host: 'smtp.gmail.com',
+            port: 465,
+            secure: true, // use SSL
             auth: {
                 user: process.env.EMAIL,
                 pass: process.env.SENHA,
