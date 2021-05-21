@@ -10,8 +10,8 @@ module.exports = emailController = {
             port: 587,
             secure: false,
             auth: {
-                user: 'marcelofranchini1988@gmail.com',
-                pass: 'palmeiras9',
+                user: process.env.EMAIL,
+                pass: process.env.SENHA,
 
             },
             tls: {
