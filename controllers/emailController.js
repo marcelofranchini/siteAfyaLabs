@@ -9,7 +9,10 @@ module.exports = emailController = {
             service: 'gmail',
             auth: {
                 user: process.env.EMAIL,
-                pass: process.env.SENHA
+                pass: process.env.SENHA,
+                port: 587,
+                secure: true
+
             },
             tls: {
                 rejectUnauthorized: false
