@@ -8,8 +8,8 @@ module.exports = emailController = {
         let transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'marcelofranchini1988@gmail.com',
-                pass: 'palmeiras9'
+                user: process.env.EMAIL,
+                pass: process.env.SENHA
             },
             tls: {
                 rejectUnauthorized: false
