@@ -4,11 +4,7 @@ module.exports = emailController = {
 
 
     send: (req, res) => {
-
         const { name, email, phone, message } = req.body
-
-        console.log(process.env.EMAIL) // body vindo certo
-
         let transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
@@ -21,16 +17,16 @@ module.exports = emailController = {
         });
 
         const output = `
-    <p>Você recebeu um novo contato</p>
-    <h3>Detalhes:</h3>
-    <ul>  
-      <li>Nome: ${name}</li>
-      <li>Email: ${email}</li>
-      <li>Telefone: ${phone}</li>
-    </ul>
-    <h3>Mensagem</h3>
-    <p>${message}</p>
-  `;
+            <p>Você recebeu um novo contato</p>
+            <h3>Detalhes:</h3>
+            <ul>  
+            <li>Nome: ${name}</li>
+            <li>Email: ${email}</li>
+            <li>Telefone: ${phone}</li>
+            </ul>
+            <h3>Mensagem</h3>
+            <p>${message}</p>
+        `;
 
 
         let mailOptions = {
@@ -52,10 +48,8 @@ module.exports = emailController = {
 
             });
 
-
         } catch (error) {
             return res.status(500).json({ msg: error })
-
 
         }
     }
